@@ -84,7 +84,7 @@ export default function AddItemPage() {
 
   return (
     <PrivateRoute>
-      <Card className="w-full sm:max-w-5xl mx-auto my-auto">
+      <Card className="w-full max-w-2xl mx-auto">
         <CardHeader>
           <CardTitle>Add Item</CardTitle>
           <CardDescription>

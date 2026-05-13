@@ -5,11 +5,7 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
-import {
-  Logo,
-  LogoImageDesktop,
-  LogoImageMobile,
-} from "@/components/logo";
+import { Logo, LogoImageDesktop, LogoImageMobile } from "@/components/logo";
 
 import { cn } from "@/lib/utils";
 
@@ -44,56 +40,70 @@ type Props = Partial<Footer2Props>;
 
 const defaultProps: Footer2Props = {
   logo: {
-    url: "https://www.shadcnblocks.com",
-    src: "/images/logo/shadcnblocks-logo-word.svg",
-    alt: "logo",
-    title: "Shadcnblocks.com",
+    url: "/",
+    src: "/logo.png",
+    alt: "ScholarSuite Logo",
+    title: "ScholarSuite",
   },
-  description: "Finely crafted blocks built with Shadcn UI.",
+
+  description:
+    "ScholarSuite is a modern school management platform designed to simplify student management, courses, attendance, and academic workflows.",
+
   sections: [
     {
-      title: "Product",
+      title: "Platform",
       links: [
-        { name: "Overview", href: "#" },
-        { name: "Pricing", href: "#" },
-        { name: "Marketplace", href: "#" },
-        { name: "Features", href: "#" },
-        { name: "Integrations", href: "#" },
+        { name: "Dashboard", href: "/dashboard" },
+        { name: "Courses", href: "/courses" },
+        { name: "Attendance", href: "/attendance" },
+        { name: "Assignments", href: "/assignments" },
+        { name: "Analytics", href: "/analytics" },
       ],
     },
+
     {
       title: "Company",
       links: [
-        { name: "About", href: "#" },
-        { name: "Team", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Contact", href: "#" },
+        { name: "About Us", href: "/about" },
+        { name: "Our Team", href: "/team" },
+        { name: "Careers", href: "/careers" },
+        { name: "Contact", href: "/contact" },
+        { name: "Blog", href: "/blog" },
       ],
     },
+
     {
       title: "Support",
       links: [
-        { name: "Help center", href: "#" },
-        { name: "Documentation", href: "#" },
-        { name: "Status", href: "#" },
-        { name: "Community", href: "#" },
+        { name: "Help Center", href: "/help" },
+        { name: "Documentation", href: "/docs" },
+        { name: "FAQs", href: "/faq" },
+        { name: "Community", href: "/community" },
       ],
     },
+
     {
       title: "Resources",
       links: [
-        { name: "Guides", href: "#" },
-        { name: "Templates", href: "#" },
-        { name: "Sales", href: "#" },
-        { name: "Advertise", href: "#" },
+        { name: "Student Portal", href: "/student-portal" },
+        { name: "Teacher Portal", href: "/teacher-portal" },
+        { name: "Events", href: "/events" },
+        { name: "Announcements", href: "/announcements" },
       ],
     },
   ],
-  copyright: "© 2024 Shadcnblocks.com. All rights reserved.",
+
+  copyright: "© 2026 ScholarSuite. All rights reserved.",
+
   legalLinks: [
-    { name: "Terms and Conditions", href: "#" },
-    { name: "Privacy Policy", href: "#" },
+    {
+      name: "Terms & Conditions",
+      href: "/terms",
+    },
+    {
+      name: "Privacy Policy",
+      href: "/privacy",
+    },
   ],
 };
 

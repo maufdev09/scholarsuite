@@ -3,6 +3,7 @@ import { ArrowDownRight, Star } from "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface Hero3Props {
   heading?: string;
@@ -30,41 +31,25 @@ interface Hero3Props {
 }
 
 const Hero3 = ({
-  heading = "Blocks built with Shadcn & Tailwind",
-  description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
+  heading = "Modern School Management Platform",
+  description = "ScholarSuite helps schools, teachers, and students manage courses, attendance, communication, and academic activities through a fast, secure, and user-friendly platform built with Next.js, TailwindCSS, and Shadcn UI.",
   buttons = {
     primary: {
-      text: "Sign Up",
-      url: "https://www.shadcnblocks.com",
+      text: "Get Started",
+      url: "/register",
     },
     secondary: {
-      text: "Get Started",
-      url: "https://www.shadcnblocks.com",
+      text: "Explore Courses",
+      url: "/items",
     },
   },
   reviews = {
-    count: 200,
-    rating: 5.0,
+    count: 500,
+    rating: 4.9,
     avatars: [
       {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
-        alt: "Avatar 1",
-      },
-      {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
-        alt: "Avatar 2",
-      },
-      {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
-        alt: "Avatar 3",
-      },
-      {
-        src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
-        alt: "Avatar 4",
-      },
-      {
         src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp",
-        alt: "Avatar 5",
+        alt: "Parent Avatar 1",
       },
     ],
   },
@@ -72,7 +57,7 @@ const Hero3 = ({
 }: Hero3Props) => {
   return (
     <section className={cn("py-32", className)}>
-      <div className="container grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+      <div className="container grid items-center gap-10 lg:grid-cols-2 lg:gap-20 mx-10">
         <div className="mx-auto flex flex-col items-center text-center md:ml-auto lg:max-w-3xl lg:items-start lg:text-left">
           <h1 className="my-6 text-4xl font-bold text-pretty lg:text-6xl xl:text-7xl">
             {heading}
@@ -122,10 +107,12 @@ const Hero3 = ({
           </div>
         </div>
         <div className="flex">
-          <img
-            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+          <Image
+            src="/logo.png"
+            width={800}
+            height={600}
             alt="placeholder hero"
-            className="max-h-[600px] w-full rounded-md object-cover lg:max-h-[800px]"
+            className="  rounded-md object-cover "
           />
         </div>
       </div>

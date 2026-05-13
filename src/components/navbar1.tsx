@@ -3,6 +3,17 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -73,6 +84,8 @@ const Navbar1 = ({
   menu = [
     { title: "Home", url: "./" },
     { title: "Courses", url: "/items" },
+    { title: "About Us", url: "/about-us" },
+    { title: "Add Course", url: "/items/add" },
   ],
   auth = {
     login: { title: "Login", url: "/login" },
@@ -85,7 +98,12 @@ const Navbar1 = ({
   console.log(FAauth);
 
   return (
-    <section className={cn("py-4", className)}>
+    <section
+      className={cn(
+        "sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md py-4 mb-3   ",
+        className,
+      )}
+    >
       <div className="container">
         {/* Desktop Menu */}
         <nav className="hidden items-center justify-between lg:flex">

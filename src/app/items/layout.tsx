@@ -7,10 +7,8 @@ export default function ItemsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-full flex flex-col max-w-7xl mx-auto">
-      <Navbar1></Navbar1>
+    <div className="container  min-h-full flex flex-col max-w-7xl mx-auto">
       {children}
-      <Footer2></Footer2>
     </div>
   );
 }
