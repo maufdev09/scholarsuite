@@ -42,7 +42,7 @@ const formSchema = z.object({
 
   category: z.string(),
 
-  price: z.coerce.number().min(0, "Price cannot be negative"),
+  price: z.number().min(0, "Price cannot be negative"),
 
   level: z.enum(["Beginner", "Intermediate", "Advanced"]),
 
@@ -189,6 +189,7 @@ export default function AddItemPage() {
                       placeholder="Price"
                       autoComplete="off"
                       type="number"
+                      onChange={(e) => field.onChange(Number(e.target.value))}
                       step="0.01"
                       min="0"
                     />

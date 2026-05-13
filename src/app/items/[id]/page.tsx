@@ -2,11 +2,13 @@
 import { Button } from "@/components/ui/button";
 import { coursesData } from "@/data/courses";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
 
-export default function DetailsPage({ params }: { params: { id: string } }) {
-  // eslint-disable-next-line
-  const { id } = React.use(params) as { id: string };
+export default function DetailsPage() {
+  const params = useParams();
+  const id = params.id as string;
+
   const storedCourses = JSON.parse(localStorage.getItem("courses") || "[]");
 
   const allCourses = [...coursesData, ...storedCourses];
