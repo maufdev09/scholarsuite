@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import { coursesData } from "@/data/courses";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export type CourseTs = {
   id: string;
@@ -16,13 +18,15 @@ export type CourseTs = {
 };
 
 export default function ItemsPage() {
+  const router = useRouter();
   const [courses, setCourses] = useState<CourseTs[]>(() => {
     if (typeof window !== "undefined") {
       const storedCourses = JSON.parse(localStorage.getItem("courses") || "[]");
-      return [...storedCourses, ...coursesData];
+      return storedCourses;
     }
     return [];
   });
+
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
 
@@ -36,6 +40,12 @@ export default function ItemsPage() {
     return matchesSearch && matchesCategory;
   });
 
+  const handleDelete = (id: string) => {
+    const filteredCourses = courses.filter((course) => course.id !== id);
+    localStorage.setItem("courses", JSON.stringify(filteredCourses));
+    router.push("/items");
+    toast.success("Course deleted successfully!");
+  };
   return (
     <div className="max-w-7xl mx-auto px-4 py-20">
       <div className="mb-10 flex flex-col md:flex-row gap-4">
@@ -62,7 +72,11 @@ export default function ItemsPage() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredCourses.map((course) => (
-          <CourseCard key={course.id} course={course} />
+          <CourseCard
+            key={course.id}
+            handleDelete={handleDelete}
+            course={course}
+          />
         ))}
       </div>
     </div>

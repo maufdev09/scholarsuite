@@ -56,23 +56,28 @@ interface Navbar1Props {
       title: string;
       url: string;
     };
+    addCourse: {
+      title: string;
+      url: string;
+    };
   };
 }
 
 const Navbar1 = ({
   logo = {
-    url: "https://www.shadcnblocks.com",
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
+    url: "./",
+    src: "/logo.png",
     alt: "logo",
-    title: "Shadcnblocks.com",
+    title: "ScholarSuite",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Home", url: "./" },
     { title: "Courses", url: "/items" },
   ],
   auth = {
     login: { title: "Login", url: "/login" },
     signup: { title: "Sign Up", url: "/register" },
+    addCourse: { title: "Add Course", url: "/items/add" },
   },
   className,
 }: Navbar1Props) => {
@@ -106,9 +111,14 @@ const Navbar1 = ({
           </div>
           <div className="flex gap-2">
             {FAauth?.user ? (
-              <Button variant="outline" onClick={FAauth.logout}>
-                Logout
-              </Button>
+              <>
+                <Button variant="outline" onClick={FAauth.logout}>
+                  Logout
+                </Button>
+                <Link href={auth.addCourse.url}>
+                  <Button variant="default">{auth.addCourse.title}</Button>
+                </Link>
+              </>
             ) : (
               <>
                 <Link href={auth.login.url}>
@@ -162,9 +172,16 @@ const Navbar1 = ({
 
                   <div className="flex flex-col gap-3">
                     {FAauth?.user ? (
-                      <Button variant="outline" onClick={FAauth.logout}>
-                        Logout
-                      </Button>
+                      <>
+                        <Button variant="outline" onClick={FAauth.logout}>
+                          Logout
+                        </Button>
+                        <Link href={auth.addCourse.url}>
+                          <Button variant="default">
+                            {auth.addCourse.title}
+                          </Button>
+                        </Link>
+                      </>
                     ) : (
                       <>
                         <Button asChild variant="outline">

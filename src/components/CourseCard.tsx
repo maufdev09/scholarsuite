@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
-export default function CourseCard({ course }: any) {
+export default function CourseCard({ course, handleDelete }: any) {
   return (
     <div className="rounded-2xl overflow-hidden border bg-white shadow-sm hover:shadow-xl transition-all">
       <img
@@ -30,6 +31,13 @@ export default function CourseCard({ course }: any) {
             View Details
           </Button>
         </Link>
+        <Button
+          onClick={() => handleDelete(course.id)}
+          variant="destructive"
+          className="w-full mt-3 bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl transition-all"
+        >
+          Delete
+        </Button>
       </div>
     </div>
   );

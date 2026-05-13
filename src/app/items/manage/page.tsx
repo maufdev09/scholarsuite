@@ -3,18 +3,20 @@
 import PrivateRoute from "@/components/PrivateRoute";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CourseTs } from "../page";
+import { toast } from "sonner";
 
 export default function ManagePage() {
   const [courses, setCourses] = useState<CourseTs[]>(() => {
     if (typeof window !== "undefined") {
       const storedCourses = JSON.parse(localStorage.getItem("courses") || "[]");
-      return [...storedCourses, ...coursesData];
+      return storedCourses;
     }
     return [];
   });
 
   const handleDelete = (id: string) => {
-    const filtered = courses.filter((course: any) => course.id !== id);
+    const filtered = courses.filter((course: CourseTs) => course.id !== id);
 
     setCourses(filtered);
 

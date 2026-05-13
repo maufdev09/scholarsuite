@@ -1,11 +1,17 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { coursesData as courses } from "@/data/courses";
+import { coursesData } from "@/data/courses";
 import Link from "next/link";
+import React from "react";
 
-export default async function DetailsPage({ params }: any) {
-  const courseid = await params;
+export default function DetailsPage({ params }: { params: { id: string } }) {
+  // eslint-disable-next-line
+  const { id } = React.use(params) as { id: string };
+  const storedCourses = JSON.parse(localStorage.getItem("courses") || "[]");
 
-  const course = courses.find((item) => item.id === courseid.id);
+  const allCourses = [...coursesData, ...storedCourses];
+
+  const course = allCourses.find((item) => item.id === id);
 
   if (!course) {
     return <h1>Course Not Found</h1>;
